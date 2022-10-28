@@ -113,14 +113,14 @@ export default function Circuit(props) {
   //Verificar si uno de los vehiculos llego a la meta.
   useEffect(()=> {
     cars.some(car => {
-      if (!isGoal){
-        if (car.position>=100){
-          setIsGoal(true);
-          setIsRunning(false);
-          alert("El ganador de la carrera es "+car.name);
-          return true;
-        }
+      
+      if (car.position>=100){
+        setIsGoal(true);
+        setIsRunning(false);
+        alert("El ganador de la carrera es "+car.name);
+        return true;
       }
+      
       return false;
       
     });
