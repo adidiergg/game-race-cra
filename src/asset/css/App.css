@@ -1,18 +1,76 @@
+
+body{
+    font-family: 'Press Start 2P';
+    background-image: url('../../asset/grass.jpg');
+    background-repeat: repeat;
+    background-size: contain;
+}
+
+
+
+@font-face {
+    font-family: 'Press Start 2P';
+    src: local('Press Start 2P'), url('../../asset/font/PressStart2P-Regular.ttf') format('truetype');
+}
+
+.Header{
+    color:white;
+    text-align: center;
+}
+
+.Center {
+    display: grid;
+    place-content: center;
+}
+
 .Car {
     width: 10%;
     position: relative;
 }
 
+.Btn{
+    font-family: 'Press Start 2P';
+    font-size: 3em;
+    text-align: center;
+	display: inline-block;
+	margin:5px;
+    font-weight: bold;
+    padding: 10px 0 10px 10px ;
+    background-color: lightgray;
+    text-shadow: -1px -1px black, 1px 1px white;
+    color: gray;
+    -webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-o-border-radius: 7px;
+	border-radius: 7px;
+    box-shadow: 0 .2em gray; 
+    cursor: pointer;
+}
 
-.Goal {
-    width: 100px;
-    position: relative;
+.Btn:active {
+	box-shadow: none;
+	position: relative;
+	top: .2em;
+}
+
+.Goal{
+    border-left: 5px dashed rgb(255, 255, 255);
+    border-right: 5px dashed rgb(255, 255, 255);
+    
+    width: 80%;
+   
 }
 
 .Track {
+    margin-top: 2em;
+    border-top: 10px solid rgb(179, 1, 1);
+    border-bottom: 10px solid rgb(179, 1, 1);
     background-image: url('../../asset/background.jpg');
     background-repeat: repeat;
     background-size: contain;
+    margin-bottom: 2em;
+    
+    
 }
 
 

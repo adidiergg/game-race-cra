@@ -27,9 +27,10 @@ export default function Circuit(props) {
     },
     {
       id:2,
-      name:'Max Verstappen',
+      name:'Lewis hamilton',
       position:0,
-      team:RedBull
+      team:Mercedes
+      
     },
     {
       id:3,
@@ -47,6 +48,36 @@ export default function Circuit(props) {
       name:'Fernando alonso',
       position:0,
       team:Alpine
+    },
+    {
+      id:6,
+      name:'Nicholas latifi',
+      position:0,
+      team:Williams
+    },{
+      id:7,
+      name:'Lando Norris',
+      position:0,
+      team:McLaren
+      
+    },{
+      id:8,
+      name:'Valtteri Bottas',
+      position:0,
+      team:AlfaRomeo
+      
+    },{
+      id:9,
+      name:'Mick Schumacher',
+      position:0,
+      team:Haas
+      
+    },{
+      id:10,
+      name:'Yuki Tsudona',
+      position:0,
+      team:AlphaTauri
+      
     }
 
 
@@ -57,10 +88,12 @@ export default function Circuit(props) {
     const moveCars = cars.map(car => {  
       return {
         ...car,
-        position: car.position+(Math.random()*2),
+        position: car.position+(Math.random()*3),
       };
     });
     setCars(moveCars);
+    console.log(cars)
+    
   }
 
   useEffect(() =>{
@@ -77,15 +110,18 @@ export default function Circuit(props) {
 
   });
 
+  //Verificar si uno de los vehiculos llego a la meta.
   useEffect(()=> {
-    cars.map(car => {
+    cars.some(car => {
       if (!isGoal){
-        if (car.position>=80){
+        if (car.position>=100){
           setIsGoal(true);
           setIsRunning(false);
           alert("El ganador de la carrera es "+car.name);
+          return true;
         }
       }
+      return false;
       
     });
     
@@ -117,17 +153,26 @@ export default function Circuit(props) {
 
   return (
     <div>
-    <h1>{props.name}</h1>
+    <h1 className='Header' >{props.name}</h1>
 
     <div className='Track' >
+       
+       <div className='Goal'>
         {grid}
+       </div>
+       
+        
     </div>
+    <div className='Center' >
 
-    { isGoal ?
-       <button onClick={reset}>Reiniciar</button>
-      :
-      <button onClick={start}>Iniciar</button>
-    }
+      { isGoal ?
+        <button  className='Btn' onClick={reset}>Reiniciar</button>
+        :
+
+
+        <button className='Btn' onClick={start}> {isRunning ? 'Pausar':'Iniciar'}</button>
+      }
+    </div>
    
     </div>
   )
